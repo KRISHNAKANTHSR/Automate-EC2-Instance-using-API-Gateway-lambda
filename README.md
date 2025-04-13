@@ -40,8 +40,23 @@ def lambda_handler(event, context):
             })
         }
 
+
     except Exception as e:
         return {
             'statusCode': 500,
             'body': json.dumps({'error': str(e)})
         }
+
+
+📡 API Gateway Setup
+Create a REST API
+
+Add a GET method linked to the Lambda function
+
+Deploy to a stage (e.g., prod)
+
+Test using:
+https://<api-id>.execute-api.<region>.amazonaws.com/prod
+
+✅ Result
+With one API call, an EC2 instance is created on-demand. Ideal for automation, cost-saving, and quick provisioning.

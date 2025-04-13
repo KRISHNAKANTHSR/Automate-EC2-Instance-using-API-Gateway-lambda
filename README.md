@@ -15,6 +15,19 @@ This project demonstrates how to programmatically launch EC2 instances by trigge
   - `AWSLambdaBasicExecutionRole`
 - Lambda function with attached role
 - API Gateway configured with Lambda integration
+  
+##📡 API Gateway Setup
+Create a REST API
+
+Add a GET method linked to the Lambda function
+
+Deploy to a stage (e.g., prod)
+
+Test using:
+https://<api-id>.execute-api.<region>.amazonaws.com/prod
+
+##✅ Result
+With one API call, an EC2 instance is created on-demand. Ideal for automation, cost-saving, and quick provisioning.
 
 ## 📌 Lambda Function Code (Python)
 ```python
@@ -47,16 +60,3 @@ def lambda_handler(event, context):
             'body': json.dumps({'error': str(e)})
         }
 
-
-📡 API Gateway Setup
-Create a REST API
-
-Add a GET method linked to the Lambda function
-
-Deploy to a stage (e.g., prod)
-
-Test using:
-https://<api-id>.execute-api.<region>.amazonaws.com/prod
-
-✅ Result
-With one API call, an EC2 instance is created on-demand. Ideal for automation, cost-saving, and quick provisioning.
